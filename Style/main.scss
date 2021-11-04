@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+main{
+    display: grid;
+    grid-template-rows: 52px 1fr;
+    grid-template-columns: 244px 1fr;
+    grid-template-areas: 
+    "header header"
+    "sidebar maincontent";
+    height: 200vh;
+}
+
+.header{
+    grid-area: header;
+    background-color: aquamarine;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background-color: red;
+}
+
+.maincontent{
+    grid-area: maincontent;
+    background-color: royalblue;
+    padding: 108px 20px 20px;
+}
+
+.main-content-row1{
+    grid-area: main-content-row1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(187px,1fr));
+    grid-template-areas: "name-card name-card name-card";
+    gap:20px;
+    .name-card{
+        height: 148px;
+        grid-area:name-card;
+        background-color: seagreen;
+    }
+    .attention-card{
+        height: 148px;
+        background-color:springgreen;
+    }
+}
+
+.main-content-row2{
+    padding-top: 48px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "upload-card upload-card upload-card upload-card marketing-card marketing-card";
+    gap:20px;
+    .upload-card{
+        grid-area:upload-card;
+        display: grid;
+        grid-template-columns: 252px 1fr;
+        height: 448px;
+        padding: 32px 20px;
+        background-color: teal;
+        gap:40px;
+        .upload-area{
+            background-color: tomato;
+        }
+        .upload-recent{
+            background-color: wheat;
+        }
+    }
+    .marketing-card{
+        grid-area:marketing-card;
+        height: 448px;
+        background-color:tan;
+        
+    }
+    
+}
+
+@media only screen and (max-width: 1200px){
+    .main-content-row2{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "upload-card" "marketing-card";
+        
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .main-content-row2{
+        .upload-card{
+            grid-template-columns: 1fr;
+            grid-template-rows: 304px auto;
+        }
+    }
+ }
